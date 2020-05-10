@@ -1,8 +1,8 @@
 import random
-import tkinter 
+import tkinter
 print("\n"*10 +"Hello and welcome to Connect 4!")
-# player1=input("Please choose the name for Player 1:   ")
-# player2=input("Please choose the name for Player 2:   ")
+player1=input("Please choose the name for Player 1:   ")
+player2=input("Please choose the name for Player 2:   ")
 
 
 testboard=[[' ']*7 for i in range(6)]
@@ -31,30 +31,30 @@ def col_win_check(board):
             return True
 def diag_win_check(board):
     #for loops to find upward diagonal wins (left to right)
-    for i in range(3,6): 
+    for i in range(3,6):
         for j in range(4):
             if board[i][j]==board[i-1][j+1]==board[i-2][j+2]==board[i-3][j+3]==('1' or '2'):
-                
+
                 return True
     for i in range(3,6):
         for j in range (3,7):
             if board[i][j]==board[i-1][j-1]==board[i-2][j-2]==board[i-3][j-3]==('1' or '2'):
-                
+
                 return True
 
 def wincheck(board):
     checking=True
     while checking:
         if col_win_check(board):
-            
+
             return True
-                   
-        elif row_win_check(board):           
+
+        elif row_win_check(board):
             return True
-            
+
         elif diag_win_check(board):
             return True
-            
+
         else:
             return(False)
 showboard(testboard)
@@ -104,16 +104,16 @@ def fullboard_check(board):
 
 playing =True
 while playing:
-    
-    
-    
-    
+
+
+
+
     print('\n'*2)
     print("It's Player 1's go")
-    
+
     place_coin(testboard,'1')
     showboard(testboard)
-    
+
     if wincheck(testboard)==True:
         print("Player 1 wins")
         break
@@ -124,11 +124,11 @@ while playing:
 
     print("\n")
     print("It's Player 2's go")
-    
-    
+
+
     place_coin(testboard,'2')
     showboard(testboard)
-    
+
     if wincheck(testboard) == True:
         print("Player 2 wins")
         break
